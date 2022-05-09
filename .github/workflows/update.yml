@@ -82,13 +82,13 @@ jobs:
               echo '::set-output name=has_changes::true'
           fi
 
-      - name: Impersonate update bot
-        uses: tibdex/github-app-token@v1
-        id: generate-token
-        if: steps.update-files.outputs.has_changes
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+      #- name: Impersonate update bot
+      #  uses: tibdex/github-app-token@v1
+      #  id: generate-token
+      #  if: steps.update-files.outputs.has_changes
+      #  with:
+      #    app_id: ${{ secrets.APP_ID }}
+      #    private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Send pull request to update to new version
         if: steps.update-files.outputs.has_changes
